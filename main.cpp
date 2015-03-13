@@ -39,11 +39,11 @@ int promedio(NodoArbolBinario* raiz)
 //Para llegar al nodo 15 se ocupa 1 paso (15)
 int cuantosPasos(NodoArbolBinario* raiz,int num)
 {
-    int counter = 0;
+    int counter = 1;
     if(raiz==NULL)return 1; //Verifica la raiz, en caso de ser nula, retorna 1
     if(raiz->num == num)return 1; //Verifica la raiz, en caso de ser nula, retorna 0
-    if(num>raiz->num){counter +=cuantosPasos(raiz->hijo_der,num)+1;} //llamada recursiva donde se le suma al contador los pasos + 1
-    if(num<raiz->num){counter +=cuantosPasos(raiz->hijo_izq,num)+1;} //llamada recursiva donde se le suma al contador los pasos + 1
+    if(num>raiz->num){counter +=cuantosPasos(raiz->hijo_der,num);} //llamada recursiva donde se le suma al contador los pasos
+    if(num<raiz->num){counter +=cuantosPasos(raiz->hijo_izq,num);} //llamada recursiva donde se le suma al contador los pasos
     return counter; // se returna el ontador
 }
 
